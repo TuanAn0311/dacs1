@@ -110,7 +110,7 @@ public class NhanVien extends JFrame implements ActionListener, MouseListener {
 		setTitle("Nhân Viên");
 		setForeground(Color.BLACK);
 
-		URL urll = NhanVien.class.getResource("iconKH.png");
+		URL urll = NhanVien.class.getResource("nhanVien.png");
 		Image img = Toolkit.getDefaultToolkit().createImage(urll);
 		this.setIconImage(img);
 
@@ -407,7 +407,7 @@ public class NhanVien extends JFrame implements ActionListener, MouseListener {
 		bt_clear.setFont(new Font("Tahoma", Font.BOLD, 20));
 		contentPane.add(bt_clear);
 
-		note = new JLabel("Mã Nhân Viên có định dạng NVxxx (x: số) !");
+		note = new JLabel("<html>Mã Nhân Viên có định dạng <b>NVxxx</b> (x: số nguyên) !</html>");
 		note.setBounds(379, 464, 514, 37);
 		contentPane.add(note);
 		note.setForeground(Color.RED);

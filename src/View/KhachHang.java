@@ -440,7 +440,7 @@ public class KhachHang extends JFrame implements ActionListener, MouseListener {
 		bt_clear.setBounds(189, 383, 157, 51);
 		contentPane.add(bt_clear);
 
-		note = new JLabel("Mã khách hàng phải có định dạng khxxx !");
+		note = new JLabel("<html>Mã khách hàng phải có định dạng <b>khxxx</b> (x: số nguyên) !</html>");
 		note.setBounds(379, 464, 514, 37);
 		contentPane.add(note);
 		note.setForeground(Color.RED);

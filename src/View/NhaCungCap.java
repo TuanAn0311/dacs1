@@ -110,7 +110,7 @@ public class NhaCungCap extends JFrame implements ActionListener, MouseListener 
 		setTitle("Nhà Cung Cấp");
 		setForeground(Color.BLACK);
 
-		URL urll = KhoHang.class.getResource("iconKH.png");
+		URL urll = KhoHang.class.getResource("nhaCungcap.png");
 		Image img = Toolkit.getDefaultToolkit().createImage(urll);
 		this.setIconImage(img);
 
@@ -419,7 +419,7 @@ public class NhaCungCap extends JFrame implements ActionListener, MouseListener 
 		bt_clear.setFont(new Font("Tahoma", Font.BOLD, 20));
 		contentPane.add(bt_clear);
 
-		note = new JLabel("Mã Công Ty có định dạng CTxxx (x: số) !");
+		note = new JLabel("<html>Mã Công Ty có định dạng <b>CTxxx</b> (x: số nguyên) !</html>");
 		note.setBounds(379, 464, 514, 37);
 		contentPane.add(note);
 		note.setForeground(Color.RED);

@@ -105,7 +105,7 @@ public class KhoHang extends JFrame implements ActionListener, MouseListener {
 		setTitle("Kho Hàng");
 		setForeground(Color.BLACK);
 
-		URL urll = KhoHang.class.getResource("iconKH.png");
+		URL urll = KhoHang.class.getResource("khoHang.png");
 		Image img = Toolkit.getDefaultToolkit().createImage(urll);
 		this.setIconImage(img);
 
@@ -386,7 +386,7 @@ public class KhoHang extends JFrame implements ActionListener, MouseListener {
 		bt_clear.setBounds(189, 367, 157, 51);
 		contentPane.add(bt_clear);
 
-		note = new JLabel("Mã khách hàng phải có 4 chữ số !");
+		note = new JLabel("<html>Mã kho hàng có định dạng <b>khoxxx</> (x: số nguyên) !</html>");
 		note.setBounds(379, 464, 514, 37);
 		contentPane.add(note);
 		note.setForeground(Color.RED);

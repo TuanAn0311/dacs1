@@ -28,6 +28,7 @@ import javax.swing.table.DefaultTableModel;
 import Connection.ConnectJDBC;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
+import javax.swing.JSeparator;
 
 
 public class Update extends JFrame {
@@ -159,12 +160,23 @@ public class Update extends JFrame {
 				btnDelete.setFont(new Font("Tahoma", Font.PLAIN, 24));
 				btnDelete.setBounds(243, 357, 174, 47);
 				contentPane.add(btnDelete);
+				
+				JLabel lblNewLabel_1 = new JLabel("Quay lại");
+				lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+				lblNewLabel_1.setBounds(0, 0, 133, 41);
+				lblNewLabel_1.setIcon(
+						new ImageIcon(Toolkit.getDefaultToolkit().createImage(Update.class.getResource("iconback.png"))));
+				contentPane.add(lblNewLabel_1);
+				
+				JSeparator separator = new JSeparator();
+				separator.setBounds(0, 39, 141, 2);
+				contentPane.add(separator);
 		
 				JLabel background = new JLabel("");
 				background.setBounds(0, 0, 452, 461);
 				contentPane.add(background);
 				background.setIcon(
-						new ImageIcon(Toolkit.getDefaultToolkit().createImage(SignIn.class.getResource("backgroundMK.jpg"))));
+						new ImageIcon(Toolkit.getDefaultToolkit().createImage(Update.class.getResource("backgroundMK.jpg"))));
 		setLocationRelativeTo(null);
 
 		ConnectJDBC jdbc = new ConnectJDBC();

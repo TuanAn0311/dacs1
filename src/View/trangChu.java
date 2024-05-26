@@ -73,6 +73,7 @@ public class trangChu extends JFrame {
 	 * Create the frame.
 	 */
 	public trangChu() {
+		setFont(new Font("Dialog", Font.PLAIN, 21));
 		
 		URL url = KhachHang.class.getResource("chaiRuou.png");
 		Image img = Toolkit.getDefaultToolkit().createImage(url);
@@ -105,8 +106,59 @@ public class trangChu extends JFrame {
 			}
 		});
 		
+		JLabel lblNewLabel_6_1 = new JLabel("Khách Hàng");
+		lblNewLabel_6_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_6_1.setForeground(Color.WHITE);
+		lblNewLabel_6_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblNewLabel_6_1.setBounds(18, 57, 143, 36);
+		contentPane.add(lblNewLabel_6_1);
+		
+		JLabel lblNewLabel_6_3 = new JLabel("Đơn Hàng");
+		lblNewLabel_6_3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_6_3.setForeground(Color.WHITE);
+		lblNewLabel_6_3.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblNewLabel_6_3.setBounds(323, 57, 143, 36);
+		contentPane.add(lblNewLabel_6_3);
+		
+		JLabel lblNewLabel_6_5 = new JLabel("Nhà Cung Cấp");
+		lblNewLabel_6_5.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_6_5.setForeground(Color.WHITE);
+		lblNewLabel_6_5.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblNewLabel_6_5.setBounds(772, 57, 143, 36);
+		contentPane.add(lblNewLabel_6_5);
+		
+		JLabel lblNewLabel_6_2 = new JLabel("Nhân Viên");
+		lblNewLabel_6_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_6_2.setForeground(Color.WHITE);
+		lblNewLabel_6_2.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblNewLabel_6_2.setBounds(170, 57, 143, 36);
+		contentPane.add(lblNewLabel_6_2);
+		
+		JLabel lblNewLabel_6_4 = new JLabel("Sản Phẩm");
+		lblNewLabel_6_4.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_6_4.setForeground(Color.WHITE);
+		lblNewLabel_6_4.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblNewLabel_6_4.setBounds(629, 57, 143, 36);
+		contentPane.add(lblNewLabel_6_4);
+		
+		JLabel lblNewLabel_5 = new JLabel("");
+		lblNewLabel_5.setBounds(9, 180, 417, 324);
+		lblNewLabel_5.setBackground(Color.decode("#FFEAB0"));
+		contentPane.add(lblNewLabel_5);
+		
+		JLabel lblNewLabel_6 = new JLabel("Kho Hàng");
+		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblNewLabel_6.setForeground(new Color(255, 255, 255));
+		lblNewLabel_6.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_6.setBounds(476, 57, 143, 36);
+		contentPane.add(lblNewLabel_6);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setBounds(5, 172, 933, 2);
+		contentPane.add(separator_1);
+		
 		JSeparator separator = new JSeparator();
-		separator.setBounds(10, 79, 997, 7);
+		separator.setBounds(8, 46, 930, 2);
 		contentPane.add(separator);
 		
 		JButton btQLTK = new JButton("Quản Lý Tài Khoản");
@@ -167,12 +219,12 @@ public class trangChu extends JFrame {
 		contentPane.add(btDatHangNhanh);
 		
 		JPanel panel_img = new JPanel();
-		panel_img.setBounds(440, 191, 485, 325);
+		panel_img.setBounds(440, 181, 485, 325);
 		contentPane.add(panel_img);
 		
 		
 		
-		JLabel lblNewLabel = new JLabel("Quay về");
+		JLabel lblNewLabel = new JLabel("Đăng xuất");
 		lblNewLabel.setCursor(new Cursor(HAND_CURSOR));
 		lblNewLabel.addMouseListener(new MouseAdapter() {
 			@Override
@@ -188,12 +240,14 @@ public class trangChu extends JFrame {
 			}
 				
 		});
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblNewLabel.setBounds(10, 21, 154, 48);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel.setBounds(5, 0, 154, 48);
 		contentPane.add(lblNewLabel);
 		lblNewLabel.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(trangChu.class.getResource("back.jpg"))));
 		
-		JButton bt_khoHang = new JButton("Kho Hàng");
+		JButton bt_khoHang = new JButton("");
+		bt_khoHang.setBackground(new Color(240, 240, 240));
+		
 		bt_khoHang.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				KhoHang kh = new KhoHang();
@@ -202,22 +256,25 @@ public class trangChu extends JFrame {
 			}
 		});
 		bt_khoHang.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		bt_khoHang.setBounds(480, 106, 143, 60);
+		bt_khoHang.setBounds(476, 91, 143, 60);
 		contentPane.add(bt_khoHang);
+		bt_khoHang.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(trangChu.class.getResource("khoHang.png"))));
 		
-		JButton btnNewButton_4_2 = new JButton("<html>Nhà Cung<br>&#160 &#160 Cấp</html>");
-		btnNewButton_4_2.addActionListener(new ActionListener() {
+		JButton bt_nhaCungCap = new JButton("");
+		bt_nhaCungCap.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				NhaCungCap ncc = new NhaCungCap();
 				ncc.setVisible(true);
 				setVisible(false);
 			}
 		});
-		btnNewButton_4_2.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnNewButton_4_2.setBounds(776, 106, 143, 60);
-		contentPane.add(btnNewButton_4_2);
+		bt_nhaCungCap.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		bt_nhaCungCap.setBounds(772, 91, 143, 60);
+		contentPane.add(bt_nhaCungCap);
+		bt_nhaCungCap.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(trangChu.class.getResource("nhaCungCap.png"))));
 		
-		JButton bt_sanPham = new JButton("Sản Phẩm");
+		JButton bt_sanPham = new JButton();
+		bt_sanPham.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(trangChu.class.getResource("sanPham.png"))));
 		bt_sanPham.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				SanPham sp = new SanPham();
@@ -226,10 +283,10 @@ public class trangChu extends JFrame {
 			}
 		});
 		bt_sanPham.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		bt_sanPham.setBounds(633, 106, 133, 60);
+		bt_sanPham.setBounds(629, 91, 133, 60);
 		contentPane.add(bt_sanPham);
 		
-		JButton bt_donHang = new JButton("Đơn Hàng");
+		JButton bt_donHang = new JButton("");
 		bt_donHang.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DonDatHang ddh = new DonDatHang();
@@ -238,10 +295,12 @@ public class trangChu extends JFrame {
 			}
 		});
 		bt_donHang.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		bt_donHang.setBounds(327, 106, 143, 60);
+		bt_donHang.setBounds(323, 91, 143, 60);
 		contentPane.add(bt_donHang);
+		bt_donHang.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(trangChu.class.getResource("hoaDon.png"))));
 		
-		JButton bt_nhanVien = new JButton("Nhân Viên");
+		JButton bt_nhanVien = new JButton();
+		bt_nhanVien.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(trangChu.class.getResource("nhanVien.png"))));
 		bt_nhanVien.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				NhanVien nv = new NhanVien();
@@ -250,30 +309,33 @@ public class trangChu extends JFrame {
 			}
 		});
 		bt_nhanVien.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		bt_nhanVien.setBounds(174, 106, 143, 60);
+		bt_nhanVien.setBounds(170, 91, 143, 60);
 		contentPane.add(bt_nhanVien);
 		
-		JButton bt_khachHang = new JButton("Khách Hàng");
+		JButton bt_khachHang = new JButton("");
+		bt_khachHang.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(trangChu.class.getResource("iconKH.png"))));
 		bt_khachHang.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				KhachHang kh = new KhachHang();
 				kh.setVisible(true);
+				setVisible(false);
 			}
 		});
 		bt_khachHang.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		bt_khachHang.setBounds(21, 106, 143, 60);
+		bt_khachHang.setBounds(17, 91, 143, 60);
 		contentPane.add(bt_khachHang);
+		bt_khachHang.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(trangChu.class.getResource("iconKH.png"))));
 		
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setBackground(new Color(192, 192, 192));
-		lblNewLabel_2.setBounds(10, 96, 919, 82);
+		lblNewLabel_2.setBounds(6, 58, 919, 105);
 		lblNewLabel_2.setOpaque(true);
 		lblNewLabel_2.setBackground(Color.decode("#696969"));
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_1 = new JLabel("Hệ Thống Quản Lý Kho Rượu");
-		lblNewLabel_1.setBounds(307, 3, 640, 76);
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 35));
+		lblNewLabel_1.setBounds(298, 0, 640, 48);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 32));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		contentPane.add(lblNewLabel_1);
 		panel_img.setLayout(null);
@@ -290,14 +352,16 @@ public class trangChu extends JFrame {
 		contentPane.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("Rượu - Sự tinh tế trong từng hương vị!");
-		lblNewLabel_4.setForeground(Color.BLUE);
+		lblNewLabel_4.setForeground(new Color(220, 20, 60));
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.ITALIC, 22));
 		lblNewLabel_4.setBounds(27, 429, 391, 54);
 		contentPane.add(lblNewLabel_4);
 		
 		JLabel lblBackGround = new JLabel("");
-		lblBackGround.setBackground(UIManager.getColor("CheckBox.focus"));
+		lblBackGround.setBackground(Color.ORANGE);
 		lblBackGround.setBounds(0, 0, 935, 516);
+		lblBackGround.setIcon(
+				new ImageIcon(Toolkit.getDefaultToolkit().createImage(trangChu.class.getResource("background.jpg"))));
 		contentPane.add(lblBackGround);
 	}
 }

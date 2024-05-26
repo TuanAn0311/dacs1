@@ -111,7 +111,7 @@ public class SanPham extends JFrame implements ActionListener, MouseListener {
 		setTitle("Sản Phẩm");
 		setForeground(Color.BLACK);
 
-		URL urll = KhoHang.class.getResource("iconKH.png");
+		URL urll = KhoHang.class.getResource("sanPham.png");
 		Image img = Toolkit.getDefaultToolkit().createImage(urll);
 		this.setIconImage(img);
 
@@ -408,7 +408,7 @@ public class SanPham extends JFrame implements ActionListener, MouseListener {
 		bt_Clear.setFont(new Font("Tahoma", Font.BOLD, 20));
 		contentPane.add(bt_Clear);
 
-		note = new JLabel("Mã Sản Phẩm phải có 4 chữ số !");
+		note = new JLabel("<html>Mã Sản Phẩm phải có định dạng <b>SPxxx</b> (x: số nguyên) !</html>");
 		note.setBounds(379, 464, 514, 37);
 		contentPane.add(note);
 		note.setForeground(Color.RED);

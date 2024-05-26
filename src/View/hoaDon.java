@@ -10,6 +10,9 @@ import Connection.ConnectJDBC;
 
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -51,6 +54,10 @@ public class hoaDon extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		URL urll = hoaDon.class.getResource("hoaDon.png");
+		Image img = Toolkit.getDefaultToolkit().createImage(urll);
+		this.setIconImage(img);
 		
 		JLabel lblNewLabel = new JLabel("Hoá Đơn Thanh Toán");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);

@@ -113,7 +113,7 @@ public class DonDatHang extends JFrame implements ActionListener, MouseListener{
 		setTitle("Đơn Hàng");
 		setForeground(Color.BLACK);
 
-		URL urll = KhoHang.class.getResource("iconKH.png");
+		URL urll = KhoHang.class.getResource("datHang.png");
 		Image img = Toolkit.getDefaultToolkit().createImage(urll);
 		this.setIconImage(img);
 
@@ -384,7 +384,7 @@ public class DonDatHang extends JFrame implements ActionListener, MouseListener{
 		verticalBox.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		contentPane.add(verticalBox);
 		
-				note = new JLabel("Mã khách hàng phải có 4 chữ số !");
+				note = new JLabel("<html>Mã đơn hàng phải có định dạng <b>dhxx</b> (x: số nguyên) !</html>");
 				verticalBox.add(note);
 				note.setForeground(Color.RED);
 				note.setFont(new Font("Tahoma", Font.ITALIC, 15));

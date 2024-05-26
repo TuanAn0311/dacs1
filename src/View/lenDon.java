@@ -107,7 +107,7 @@ public class lenDon extends JFrame implements ActionListener, MouseListener{
 		setTitle("Lên Đơn");
 		setForeground(Color.BLACK);
 
-		URL urll = KhoHang.class.getResource("iconKH.png");
+		URL urll = lenDon.class.getResource("hoaDon.png");
 		Image img = Toolkit.getDefaultToolkit().createImage(urll);
 		this.setIconImage(img);
 
