@@ -8,6 +8,7 @@ import javax.swing.border.EmptyBorder;
 
 import Connection.ConnectJDBC;
 import SignUp_SignIn.*;
+import Chat.*;
 
 
 import javax.swing.JLabel;
@@ -42,6 +43,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.awt.SystemColor;
 
 public class trangChu extends JFrame {
 
@@ -141,11 +143,6 @@ public class trangChu extends JFrame {
 		lblNewLabel_6_4.setBounds(629, 57, 143, 36);
 		contentPane.add(lblNewLabel_6_4);
 		
-		JLabel lblNewLabel_5 = new JLabel("");
-		lblNewLabel_5.setBounds(9, 180, 417, 324);
-		lblNewLabel_5.setBackground(Color.decode("#FFEAB0"));
-		contentPane.add(lblNewLabel_5);
-		
 		JLabel lblNewLabel_6 = new JLabel("Kho Hàng");
 		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		lblNewLabel_6.setForeground(new Color(255, 255, 255));
@@ -198,7 +195,7 @@ public class trangChu extends JFrame {
 								ud.setVisible(true);
 								
 							}else {
-								JOptionPane.showConfirmDialog(null, "Mật khẩu không đúng");
+								JOptionPane.showMessageDialog(null, "Mật khẩu không đúng, vui lòng thử lại");
 							}
 							
 						}else {
@@ -212,10 +209,10 @@ public class trangChu extends JFrame {
 			}
 		});
 		btQLTK.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		btQLTK.setBounds(47, 331, 336, 76);
+		btQLTK.setBounds(47, 287, 336, 76);
 		contentPane.add(btQLTK);
 		btDatHangNhanh.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		btDatHangNhanh.setBounds(47, 240, 336, 69);
+		btDatHangNhanh.setBounds(47, 196, 336, 69);
 		contentPane.add(btDatHangNhanh);
 		
 		JPanel panel_img = new JPanel();
@@ -346,7 +343,7 @@ public class trangChu extends JFrame {
 		newimg.setLayout(null);
 		
 		JLabel lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setBounds(36, 228, 361, 93);
+		lblNewLabel_3.setBounds(36, 184, 361, 93);
 		lblNewLabel_3.setOpaque(true);
 		lblNewLabel_3.setBackground(Color.decode("#F95858"));
 		contentPane.add(lblNewLabel_3);
@@ -354,8 +351,28 @@ public class trangChu extends JFrame {
 		JLabel lblNewLabel_4 = new JLabel("Rượu - Sự tinh tế trong từng hương vị!");
 		lblNewLabel_4.setForeground(new Color(220, 20, 60));
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.ITALIC, 22));
-		lblNewLabel_4.setBounds(27, 429, 391, 54);
+		lblNewLabel_4.setBounds(18, 361, 391, 48);
 		contentPane.add(lblNewLabel_4);
+		
+		JLabel lblNewLabel_5 = new JLabel("");
+		lblNewLabel_5.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				setVisible(false);
+				ManagerGUI manager = new ManagerGUI();
+				manager.setVisible(true);
+			}
+		});
+		lblNewLabel_5.setBounds(323, 424, 80, 82);
+		lblNewLabel_5.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(trangChu.class.getResource("chat.png"))));
+		lblNewLabel_5.setCursor(new Cursor(HAND_CURSOR));
+		contentPane.add(lblNewLabel_5);
+		
+		JLabel lblNewLabel_7 = new JLabel("Tổng Đài Tư Vấn");
+		lblNewLabel_7.setForeground(SystemColor.textHighlight);
+		lblNewLabel_7.setFont(new Font("Tahoma", Font.ITALIC, 27));
+		lblNewLabel_7.setBounds(103, 424, 219, 82);
+		contentPane.add(lblNewLabel_7);
 		
 		JLabel lblBackGround = new JLabel("");
 		lblBackGround.setBackground(Color.ORANGE);

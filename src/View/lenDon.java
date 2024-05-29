@@ -229,7 +229,7 @@ public class lenDon extends JFrame implements ActionListener, MouseListener{
 						JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
 
 				if (result == JOptionPane.YES_OPTION) {
-					SignIn s = new SignIn();
+					trangChu s = new trangChu();
 					s.setVisible(true);
 					setVisible(false);
 				}
