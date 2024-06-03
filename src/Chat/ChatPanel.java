@@ -15,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class ChatPanel extends JPanel implements Runnable {
 
@@ -30,6 +31,7 @@ public class ChatPanel extends JPanel implements Runnable {
     String receiver;
     BufferedReader bf = null;
     DataOutputStream os = null;
+    private JButton btnSendImage;
 
     // Một phương thức run được implement từ lớp Runable với mục đích kiểm tra tin
     // nhắn đến
@@ -41,7 +43,7 @@ public class ChatPanel extends JPanel implements Runnable {
 		    String msg = "";
 		    while ((msg = bf.readLine()) != null) {
 			// Nếu có tin nhắn đến thì ghi vào lịch sử
-			textArea_1.append(msg + "\n");
+		     textArea_1.append(new String(msg.getBytes("UTF-8")) + "\n");
 		    }
 		}
 	    } catch (Exception e) {
@@ -59,41 +61,50 @@ public class ChatPanel extends JPanel implements Runnable {
 
 	    GroupLayout groupLayout = new GroupLayout(this);
 	    groupLayout.setHorizontalGroup(
-	                    groupLayout.createParallelGroup(Alignment.LEADING)
-	                                    .addGroup(groupLayout.createSequentialGroup().addGap(332)
-	                                                    .addComponent(getLblHistory(), GroupLayout.DEFAULT_SIZE, 67,
-	                                                                    Short.MAX_VALUE)
-	                                                    .addGap(339))
-	                                    .addGroup(groupLayout
-	                                                    .createSequentialGroup().addGap(12)
-	                                                    .addComponent(getTextArea_1(), GroupLayout.DEFAULT_SIZE, 714,
-	                                                                    Short.MAX_VALUE)
-	                                                    .addGap(12))
-	                                    .addGroup(groupLayout.createSequentialGroup().addGap(12).addGroup(groupLayout
-	                                                    .createParallelGroup(Alignment.LEADING)
-	                                                    .addGroup(groupLayout.createSequentialGroup().addGap(168)
-	                                                                    .addComponent(getLblNewLabel(),
-	                                                                                    GroupLayout.DEFAULT_SIZE, 230,
-	                                                                                    Short.MAX_VALUE)
-	                                                                    .addGap(147))
-	                                                    .addComponent(getTextArea(), GroupLayout.DEFAULT_SIZE, 545,
-	                                                                    Short.MAX_VALUE))
-	                                                    .addGap(12).addComponent(getBtnNewButton(), GroupLayout.DEFAULT_SIZE,
-	                                                                    157, Short.MAX_VALUE)
-	                                                    .addGap(12)));
-	    groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(groupLayout
-	                    .createSequentialGroup().addComponent(getLblHistory(), GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
-	                    .addGap(6).addComponent(getTextArea_1(), GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE).addGap(1)
-	                    .addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-	                                    .addGroup(groupLayout.createSequentialGroup()
-	                                                    .addComponent(getLblNewLabel(), GroupLayout.PREFERRED_SIZE, 27,
-	                                                                    GroupLayout.PREFERRED_SIZE)
-	                                                    .addComponent(getTextArea(), GroupLayout.DEFAULT_SIZE, 154,
-	                                                                    Short.MAX_VALUE))
-	                                    .addGroup(groupLayout.createSequentialGroup().addGap(26).addComponent(
-	                                                    getBtnNewButton(), GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)))
-	                    .addGap(13)));
-	    bf = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+	    	groupLayout.createParallelGroup(Alignment.LEADING)
+	    		.addGroup(groupLayout.createSequentialGroup()
+	    			.addGap(332)
+	    			.addComponent(getLblHistory(), GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+	    			.addGap(339))
+	    		.addGroup(groupLayout.createSequentialGroup()
+	    			.addGap(12)
+	    			.addComponent(getTextArea_1(), GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE)
+	    			.addGap(12))
+	    		.addGroup(groupLayout.createSequentialGroup()
+	    			.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+	    				.addGroup(groupLayout.createSequentialGroup()
+	    					.addGap(180)
+	    					.addComponent(getLblNewLabel(), GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+	    					.addGap(165))
+	    				.addGroup(groupLayout.createSequentialGroup()
+	    					.addContainerGap()
+	    					.addComponent(getBtnSendImage(), GroupLayout.PREFERRED_SIZE, 62, GroupLayout.PREFERRED_SIZE)
+	    					.addPreferredGap(ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+	    					.addComponent(getTextArea(), GroupLayout.PREFERRED_SIZE, 514, GroupLayout.PREFERRED_SIZE)
+	    					.addGap(18)))
+	    			.addComponent(getBtnNewButton(), GroupLayout.PREFERRED_SIZE, 188, GroupLayout.PREFERRED_SIZE)
+	    			.addGap(12))
+	    );
+	    groupLayout.setVerticalGroup(
+	    	groupLayout.createParallelGroup(Alignment.LEADING)
+	    		.addGroup(groupLayout.createSequentialGroup()
+	    			.addComponent(getLblHistory(), GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+	    			.addGap(6)
+	    			.addComponent(getTextArea_1(), GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+	    			.addGap(1)
+	    			.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+	    				.addGroup(groupLayout.createSequentialGroup()
+	    					.addGap(26)
+	    					.addComponent(getBtnNewButton(), GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
+	    				.addGroup(groupLayout.createSequentialGroup()
+	    					.addComponent(getLblNewLabel(), GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
+	    					.addPreferredGap(ComponentPlacement.RELATED)
+	    					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+	    						.addComponent(getBtnSendImage(), GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+	    						.addComponent(getTextArea(), GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))))
+	    			.addGap(13))
+	    );
+	    bf = new BufferedReader(new InputStreamReader(socket.getInputStream(),"UTF-8"));
 	    os = new DataOutputStream(socket.getOutputStream());
 
 	    setLayout(groupLayout);
@@ -164,4 +175,16 @@ public class ChatPanel extends JPanel implements Runnable {
 	}
 	return textArea_1;
     }
+	private JButton getBtnSendImage() {
+		if (btnSendImage == null) {
+			btnSendImage = new JButton("img");
+			btnSendImage.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				
+				}
+			});
+		}
+		return btnSendImage;
+	}
+	
 }

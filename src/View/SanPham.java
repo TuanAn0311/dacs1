@@ -7,9 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Connection.ConnectJDBC;
-import SignUp_SignIn.Infor;
 import SignUp_SignIn.*;
-import SignUp_SignIn.quenMK;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
@@ -191,9 +189,12 @@ public class SanPham extends JFrame implements ActionListener, MouseListener {
 		JMenuItem mntmExit = new JMenuItem("exit");
 		mntmExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				trangChu s = new trangChu();
-				s.setVisible(true);
-				setVisible(false);
+				int result = JOptionPane.showOptionDialog(null,"Bạn có muốn đăng xuất không !", "xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+				if(result == JOptionPane.YES_OPTION) {
+					SignIn s = new SignIn();
+					s.setVisible(true);
+					setVisible(false);
+				}
 			}
 		});
 		mntmExit.setFont(new Font("Segoe UI", Font.PLAIN, 16));
@@ -233,7 +234,7 @@ public class SanPham extends JFrame implements ActionListener, MouseListener {
 						JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
 
 				if (result == JOptionPane.YES_OPTION) {
-					SignIn s = new SignIn();
+					trangChu s = new trangChu();
 					s.setVisible(true);
 					setVisible(false);
 				}
@@ -243,19 +244,19 @@ public class SanPham extends JFrame implements ActionListener, MouseListener {
 		contentPane.add(QL);
 		QL.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(KhoHang.class.getResource("iconback.png"))));
 
-		JLabel lblNewLabel_TimKiem = new JLabel("Tìm Kiếm Theo Mã KH:");
-		lblNewLabel_TimKiem.setBounds(127, 20, 181, 32);
+		JLabel lblNewLabel_TimKiem = new JLabel("Tìm Kiếm Theo Mã Sản Phẩm:");
+		lblNewLabel_TimKiem.setBounds(127, 20, 244, 32);
 		lblNewLabel_TimKiem.setFont(new Font("Tahoma", Font.BOLD, 15));
 		contentPane.add(lblNewLabel_TimKiem);
 
 		Search_TimKiem = new JTextField();
-		Search_TimKiem.setBounds(318, 21, 205, 32);
+		Search_TimKiem.setBounds(374, 20, 205, 32);
 		Search_TimKiem.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		contentPane.add(Search_TimKiem);
 		Search_TimKiem.setColumns(10);
 
 		JButton NewButton_TimKiem = new JButton("Tìm");
-		NewButton_TimKiem.setBounds(533, 19, 106, 34);
+		NewButton_TimKiem.setBounds(589, 18, 106, 34);
 		NewButton_TimKiem.setIcon(
 				new ImageIcon(Toolkit.getDefaultToolkit().createImage(KhoHang.class.getResource("iconSearch.png"))));
 		NewButton_TimKiem.setFont(new Font("Tahoma", Font.BOLD, 20));

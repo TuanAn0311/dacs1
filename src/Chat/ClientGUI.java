@@ -67,7 +67,7 @@ public class ClientGUI extends JFrame {
     }
 
     private void initComponents() {
-	setTitle("CLIENT");
+	setTitle("Khách");
 	setResizable(false);
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	setBounds(100, 100, 822, 716);

@@ -250,19 +250,34 @@ public class lenDon extends JFrame implements ActionListener, MouseListener{
 		bt_insert.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField_MaSanPham.setEditable(true);
-				if(kiemTraMaKhachHang(textField_MaKH.getText())) {
-					insert();
-					hoaDon hoadon = new hoaDon(textField_MaKH.getText(),
-							textField_MaSanPham.getText(),
-							textField_MaNV.getText(),
-							textField_SoLuong.getText(),
-							textField_MaKhoHang.getText());
-					hoadon.setVisible(true);
-					setVisible(false);
-					//(String makh, String masp, String manv, String soluong, String makho)
-				}else {
-					JOptionPane.showMessageDialog(null, "Khách hàng không tồn tại");
+				String sqll = "Select * from donHang where madh='"+ textField_MaDonHang.getText()+"'";
+				PreparedStatement pstn;
+				try {
+					pstn = conn.prepareStatement(sqll);
+					ResultSet rstn = pstn.executeQuery();
+					if(rstn.next()) {
+						JOptionPane.showOptionDialog(null, "Mã đơn hàng đã tồn tại! ", "Lỗi", JOptionPane.CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+					}else {
+						if(kiemTraMaKhachHang(textField_MaKH.getText())) {
+							insert();
+							hoaDon hoadon = new hoaDon(textField_MaKH.getText(),
+									textField_MaSanPham.getText(),
+									textField_MaNV.getText(),
+									textField_SoLuong.getText(),
+									textField_MaKhoHang.getText());
+							hoadon.setVisible(true);
+							setVisible(false);
+							//(String makh, String masp, String manv, String soluong, String makho)
+						}else {
+							JOptionPane.showOptionDialog(null, "khách hàng không tồn tại!", "Lỗi", JOptionPane.CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+						}
+					}
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
+				
+				
 				reload();
 
 			}
@@ -311,12 +326,7 @@ public class lenDon extends JFrame implements ActionListener, MouseListener{
 		bt_clear.setBounds(189, 446, 157, 51);
 		bt_clear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textField_MaDonHang.setEditable(true);
-				textField_MaDonHang.setText("");
-				textField_TrangThai.setText("");
-				textField_MaKH.setText("");
-				textField_MaKhoHang.setText("");
-				textField_MaNV.setText("");
+				clearFields();
 			}
 		});
 		bt_clear.setIcon(
@@ -491,6 +501,7 @@ public class lenDon extends JFrame implements ActionListener, MouseListener{
 		textField_MaKhoHang.setText("");
 		textField_MaNV.setText("");
 		textField_MaSanPham.setText("");
+		textField_SoLuong.setText("");
 	}
 	
 

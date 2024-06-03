@@ -7,9 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Connection.ConnectJDBC;
-import SignUp_SignIn.Infor;
 import SignUp_SignIn.*;
-import SignUp_SignIn.quenMK;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
@@ -193,9 +191,13 @@ public class DonDatHang extends JFrame implements ActionListener, MouseListener{
 		JMenuItem mntmExit = new JMenuItem("exit");
 		mntmExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				trangChu s = new trangChu();
-				s.setVisible(true);
-				setVisible(false);
+				int result = JOptionPane.showOptionDialog(null,"Bạn có muốn đăng xuất không !", "xác nhận",
+						JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+				if(result == JOptionPane.YES_OPTION) {
+					SignIn s = new SignIn();
+					s.setVisible(true);
+					setVisible(false);
+				}
 			}
 		});
 		mntmExit.setFont(new Font("Segoe UI", Font.PLAIN, 16));
@@ -216,7 +218,7 @@ public class DonDatHang extends JFrame implements ActionListener, MouseListener{
 					Users u = new Users();
 					u.setVisible(true);
 					setVisible(false);
-				} else {
+				} else {	
 					JOptionPane.showMessageDialog(null, "Sai mật khẩu");
 				}
 			}
@@ -235,7 +237,7 @@ public class DonDatHang extends JFrame implements ActionListener, MouseListener{
 						JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
 
 				if (result == JOptionPane.YES_OPTION) {
-					SignIn s = new SignIn();
+					trangChu s = new trangChu();
 					s.setVisible(true);
 					setVisible(false);
 				}
@@ -245,8 +247,8 @@ public class DonDatHang extends JFrame implements ActionListener, MouseListener{
 		contentPane.add(QL);
 		QL.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(KhoHang.class.getResource("iconback.png"))));
 
-		JLabel lblNewLabel = new JLabel("Tìm Kiếm Theo Mã KH:");
-		lblNewLabel.setBounds(292, 22, 226, 32);
+		JLabel lblNewLabel = new JLabel("Tìm Kiếm Theo Mã Đơn Hàng:");
+		lblNewLabel.setBounds(220, 22, 251, 32);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
 		contentPane.add(lblNewLabel);
 

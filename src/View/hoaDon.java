@@ -20,6 +20,8 @@ import java.sql.ResultSet;
 import javax.swing.SwingConstants;
 import javax.swing.JSeparator;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class hoaDon extends JFrame {
 
@@ -160,6 +162,13 @@ public class hoaDon extends JFrame {
 		contentPane.add(lbNhanVien);
 		
 		JButton btnNewButton = new JButton("Xác Nhận");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				trangChu tc = new trangChu();
+				tc.setVisible(true);
+				setVisible(false);
+			}
+		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 19));
 		btnNewButton.setBounds(138, 506, 161, 32);
 		contentPane.add(btnNewButton);

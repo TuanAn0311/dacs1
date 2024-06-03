@@ -7,8 +7,6 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import SignUp_SignIn.SignIn;
 
-
-
 public class Test {
 	public static void main(String[] args){
 		try {

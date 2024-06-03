@@ -191,9 +191,12 @@ public class KhachHang extends JFrame implements ActionListener, MouseListener {
 		JMenuItem mntmExit = new JMenuItem("exit");
 		mntmExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				trangChu s = new trangChu();
-				s.setVisible(true);
-				setVisible(false);
+				int result = JOptionPane.showOptionDialog(null,"Bạn có muốn đăng xuất không !", "xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+				if(result == JOptionPane.YES_OPTION) {
+					SignIn s = new SignIn();
+					s.setVisible(true);
+					setVisible(false);
+				}
 			}
 		});
 		mntmExit.setFont(new Font("Segoe UI", Font.PLAIN, 16));
@@ -238,7 +241,7 @@ public class KhachHang extends JFrame implements ActionListener, MouseListener {
 						JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
 
 				if (result == JOptionPane.YES_OPTION) {
-					SignIn s = new SignIn();
+					trangChu s = new trangChu();
 					s.setVisible(true);
 					setVisible(false);
 				}

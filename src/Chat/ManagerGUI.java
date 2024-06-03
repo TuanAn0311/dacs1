@@ -32,7 +32,6 @@ public class ManagerGUI extends JFrame implements Runnable {
     private JPanel contentPane;
     private JLabel lblNewLabel;
     private JTextField textField;
-    private JLabel lblNewLabel_1;
     private JTabbedPane tabbedPane;
     private JButton btnNewButton;
     // _________________________________________
@@ -63,31 +62,19 @@ public class ManagerGUI extends JFrame implements Runnable {
     }
 
     private void initComponents() {
-	setTitle("Manager");
+	setTitle("Tổng Đài");
 	setResizable(false);
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	setBounds(100, 100, 835, 674);
+	setBounds(100, 100, 835, 637);
 	contentPane = new JPanel();
 	contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 	setContentPane(contentPane);
 	contentPane.setLayout(null);
 	contentPane.add(getLblNewLabel());
 	contentPane.add(getTextField());
-	contentPane.add(getLblNewLabel_1());
 	contentPane.add(getTabbedPane());
 	contentPane.add(getBtnNewButton());
 	setLocationRelativeTo(null);
-	
-	JButton btnNewButton_1 = new JButton("<html>create client to demo</html>");
-	btnNewButton_1.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent e) {
-			ClientGUI c = new ClientGUI();
-			c.setVisible(true);
-		}
-	});
-	btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-	btnNewButton_1.setBounds(655, 22, 156, 59);
-	contentPane.add(btnNewButton_1);
 	contentPane.add(getBtnNewButton_2());
     }
 
@@ -108,16 +95,6 @@ public class ManagerGUI extends JFrame implements Runnable {
 	    textField.setColumns(10);
 	}
 	return textField;
-    }
-
-    public JLabel getLblNewLabel_1() {
-	if (lblNewLabel_1 == null) {
-	    lblNewLabel_1 = new JLabel("DoanDucTin_SE1403");
-	    lblNewLabel_1.setForeground(Color.DARK_GRAY);
-	    lblNewLabel_1.setFont(new Font("Tahoma", Font.ITALIC, 15));
-	    lblNewLabel_1.setBounds(670, 597, 147, 29);
-	}
-	return lblNewLabel_1;
     }
 
     public JTabbedPane getTabbedPane() {

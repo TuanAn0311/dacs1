@@ -237,7 +237,7 @@ public class KhoHang extends JFrame implements ActionListener, MouseListener {
 		contentPane.add(QL);
 		QL.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(KhoHang.class.getResource("iconback.png"))));
 
-		JLabel lblNewLabel = new JLabel("Mã Khách Hàng:");
+		JLabel lblNewLabel = new JLabel("Mã Kho Hàng:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel.setBounds(167, 20, 126, 32);
 		contentPane.add(lblNewLabel);
@@ -290,7 +290,6 @@ public class KhoHang extends JFrame implements ActionListener, MouseListener {
 		bt_update.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField_MaKhoHang.setEditable(true);
-
 				update();
 				clearFields();
 

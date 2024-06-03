@@ -1,6 +1,7 @@
 package SignUp_SignIn;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
@@ -26,9 +27,13 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import Connection.ConnectJDBC;
+import View.trangChu;
+
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.JSeparator;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 public class Update extends JFrame {
@@ -162,6 +167,15 @@ public class Update extends JFrame {
 				contentPane.add(btnDelete);
 				
 				JLabel lblNewLabel_1 = new JLabel("Quay lại");
+				lblNewLabel_1.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						setVisible(false);
+						trangChu tc = new trangChu();
+						tc.setVisible(true);
+					}
+				});
+				lblNewLabel_1.setCursor(new Cursor(HAND_CURSOR));
 				lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 				lblNewLabel_1.setBounds(0, 0, 133, 41);
 				lblNewLabel_1.setIcon(

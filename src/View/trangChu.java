@@ -99,7 +99,7 @@ public class trangChu extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btDatHangNhanh = new JButton("Đặt Hàng Nhanh");
+		JButton btDatHangNhanh = new JButton("Lên Đơn Nhanh");
 		btDatHangNhanh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				lenDon ld = new lenDon();
@@ -166,7 +166,7 @@ public class trangChu extends JFrame {
 			private JLabel RSphone;
 
 			public void actionPerformed(ActionEvent e) {
-				String tk = JOptionPane.showInputDialog("vui lòng nhập tài khoản bạn muốn quản lý:");
+				String tk = JOptionPane.showInputDialog("vui lòng nhập tên tài khoản bạn muốn quản lý:");
 				ConnectJDBC jdbc = new ConnectJDBC();
 				Connection conn = null;
 
@@ -226,7 +226,7 @@ public class trangChu extends JFrame {
 		lblNewLabel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				int result = JOptionPane.showOptionDialog(null, "Bạn muốn tiếp tục?", "Xác nhận",
+				int result = JOptionPane.showOptionDialog(null, "Bạn muốn tiếp tục?", "Đăng xuất",
 						JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
 
 				if (result == JOptionPane.YES_OPTION) {
@@ -380,5 +380,6 @@ public class trangChu extends JFrame {
 		lblBackGround.setIcon(
 				new ImageIcon(Toolkit.getDefaultToolkit().createImage(trangChu.class.getResource("background.jpg"))));
 		contentPane.add(lblBackGround);
+		setLocationRelativeTo(null);
 	}
 }
